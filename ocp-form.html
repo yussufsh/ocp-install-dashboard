@@ -1,0 +1,129 @@
+<html>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <div class="jumbotron px-2" style="background-color:RoyalBlue;color:white;  margin: 0 auto">
+    <h1 class=" display-3">Openshift on Power</h1>      
+    <p>Build your own Openshift Container Platform Cluster on PowerVM</p>
+  </div>
+  
+<div class="row px-4">
+<div class="col-sm-4 px-4" >
+
+
+
+<form class="needs-validation ">
+  <div class="form-group pt-md-3">
+    <label for="name"><b>Cluster Name</b></label>
+    <input type="text" class="form-control" id="name" placeholder="Enter cluster name" required>
+  </div>
+  <div class="form-group pt-md-3">
+    <label for="description"><b>Description</b></label>
+    <input type="text" class="form-control" id="description" placeholder="Enter a short description" required>	 
+   </div>
+  <div class="form-group pt-md-3">
+     <label for="version"><b>Select Version</b></label> <br/>
+  <select class="form-select" id="ocpversion" required>
+    <option selected disabled value="">Choose OCP version</option>
+    <option value="4.5.24">4.5.24</option>
+    <option value="4.6.11">4.6.11</option>
+  </select>
+</div>
+
+  <div class="form-group py-md-3">
+  <label for="name"><b>Cluster Size</b></label><br/>
+ 
+  <input type="radio" class="btn-check" name="options" id="medium" autocomplete="off" checked />
+  <label class="btn btn-outline-info " for="medium" id="medium">Medium</label>
+  <input type="radio" class="btn-check" name="options" id="large" autocomplete="off" />
+  <label class="btn btn-outline-info " for="large" id="large">Large</label>
+</div>
+<br/>
+<button type="submit" class="btn-primary px-4" style="width:500px;" >Create Cluster</button>
+</form>
+</div>
+ 
+<div class="col-sm-8 px-4" style="width: 700px;">
+<div class="card " id="medium-card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Medium</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Create a medium sized cluster</h6>
+     <table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Node</th>
+      <td>Masters</td>
+      <td>Workers</td>
+    </tr>
+    <tr>
+      <th scope="row">#</th>
+      <td>3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th scope="row">Processors</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+	  <tr>
+      <th scope="row">Memory</th>
+      <td>32GB</td>
+      <td>32GB</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="card " id="large-card"  style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Large</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Create a large sized cluster</h6>
+     <table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Node</th>
+      <td>Masters</td>
+      <td>Workers</td>
+    </tr>
+    <tr>
+      <th scope="row">#</th>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th scope="row">Processors</th>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+	  <tr>
+      <th scope="row">Memory</th>
+      <td>32GB</td>
+      <td>64GB</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<br/>
+
+</div>
+
+</div>
+
+<script>
+$('#large-card').hide(); 
+$('.btn-outline-info').on('click', function(){
+if($(this).attr('id') == "medium") {
+$('#large-card').hide(); 
+$('#medium-card').show(); 
+}
+else if($(this).attr('id') == "large") {
+$('#medium-card').hide(); 
+$('#large-card').show(); 
+}
+}); 
+</script>
+</body>
+</html>
